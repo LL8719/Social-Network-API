@@ -2,7 +2,8 @@
 const { connect, connection } = require('mongoose');
 
 // Set up the connection string to the MongoDB database using the MONGODB_URI environment variable or the local database URL.
-const connectionString = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017';
+const connectionString =
+	process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialNetwork';
 
 // Connect to the MongoDB database using the provided connection string.
 connect(connectionString);
