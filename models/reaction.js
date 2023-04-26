@@ -24,4 +24,6 @@ reactionSchema.virtual('formattedCreatedAt').get(function () {
 	return this.createdAt.toLocaleString();
 });
 
-module.exports = reactionSchema;
+const reaction = model('reaction', reactionSchema);
+
+module.exports = reaction;
