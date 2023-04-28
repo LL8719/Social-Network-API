@@ -6,7 +6,7 @@ const routes = require('./routes');
 const cwd = process.cwd();
 
 // Set up the server port to use the PORT environment variable or the default port 3001.
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
 // Create an instance of the Express application.
 const app = express();
