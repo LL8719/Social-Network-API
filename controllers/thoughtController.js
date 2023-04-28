@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const { user, thought, reaction } = require('../models');
 module.exports = {
 	// Find all thoughts
@@ -34,7 +35,7 @@ module.exports = {
 				{ $push: { thoughts: _id } },
 				{ new: true }
 			);
-			res.json(updateUser);
+			res.status(201).json({ message: 'Thought created successfully' });
 		} catch (err) {
 			res.status(500).json(err);
 		}
@@ -107,7 +108,7 @@ module.exports = {
 		try {
 			const deleteReaction = await thought.findOneAndUpdate(
 				{ _id: req.params.thoughtId },
-				{ $pull: { reactions: req.params.reactionId } },
+				{ $pull: { reactions: { reactionId: req.params.reactionId } } },
 				{ new: true }
 			);
 
